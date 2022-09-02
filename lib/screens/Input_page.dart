@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'Icon_content.dart';
-import 'Reusable_card.dart';
-import 'constants.dart';
-import 'main.dart';
+import '../components/Icon_content.dart';
+import '../components/Reusable_card.dart';
+import '../components/constants.dart';
+import '../main.dart';
 import 'results.dart';
+import '../components/bottom_button.dart';
+
 
 class InputPage extends StatefulWidget {
   @override
@@ -230,31 +232,15 @@ class _InputPageState extends State<InputPage> {
             ),
           ],
         )),
-        GestureDetector(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Result()));
-          },
-          child: Container(
-            child:
-            Center(
-              child: Text(
-                "Calculate your BMI",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 26,fontWeight: FontWeight.w400 ),
-              ),
-            ),
-            color: pinki,
-            margin: EdgeInsets.only(top: 10.0),
-            padding: EdgeInsets.only(bottom: 20.0),
-            width: double.infinity,
-            height: bottomcontainerheight,
-
-          ),
-        ),
+        BottomButton(ButtonTitle: "Calculate Your BMI", onTap:(){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> Result()));
+        },),
       ]),
     );
   }
 }
+
+
 
 class RoundIconButton extends StatelessWidget {
   RoundIconButton({@required this.icon, @required this.onPressed});
