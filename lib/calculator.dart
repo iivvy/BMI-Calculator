@@ -19,6 +19,18 @@ class Calculator {
       return 'Underweight';
     }
   }
+  String Interpretation (){
+    if (_bmi>=25){
+      return 'You have a high BMI , try loosing some weight you fat ass';
+
+    }
+    else if (_bmi>=18.5){
+      return 'Yaaay , you have a geat body weight';
+    }
+    else{
+      return 'Your BMI is low, eat more';
+    }
+  }
 
 
 }

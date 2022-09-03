@@ -4,6 +4,10 @@ import '../components/constants.dart';
 import 'package:bmi_calculator/components/Reusable_card.dart';
 import '../components/bottom_button.dart';
 class Result extends StatelessWidget {
+  Result({@required this.bmires , @required this.intep , @required this.restext});
+  final String bmires;
+  final String restext;
+  final String intep;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +23,11 @@ class Result extends StatelessWidget {
         children: <Widget>[
           Expanded(child: Container(
             alignment: Alignment.bottomLeft,
-
-            child: Text('Your Result',
+            child: Text('Your result',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 40,fontWeight: FontWeight.w600),
             ),
-            padding: EdgeInsets.only(top: 30.0,left: 5.0),
+            padding: EdgeInsets.only(left: 25.0,bottom: 30),
 
           )
           ),
@@ -36,19 +39,19 @@ class Result extends StatelessWidget {
                   mainAxisAlignment:MainAxisAlignment.spaceEvenly ,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children:<Widget> [
-                    Text('OVERWEIGHT',
+                    Text(restext.toUpperCase(),
                       style: TextStyle(fontSize: 28,color: Color(0xFF24D876),fontWeight: FontWeight.w400),
                     ),
-                    Text('40.5',
+                    Text(bmires,
                       style: TextStyle(fontWeight: FontWeight.bold,fontSize: 48.0),
                     ),
-                    Text('Your BMI Result is so high, lose some height you fat',
+                    Text(intep,
                       style: TextStyle(fontSize: 24,fontWeight: FontWeight.w300),
                       textAlign: TextAlign.center,
                     ),
                     BottomButton(onTap:(){
                       Navigator.pop(context);
-                    }, ButtonTitle:'Re-Calculate')
+                    }, ButtonTitle:'Re-Calculate'.toUpperCase())
 
                   ],
                 )
